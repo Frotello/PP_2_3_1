@@ -6,7 +6,6 @@ public class Car { // Создаем сущность Car, с тремя пол�
     private String color;
 
     public Car(){
-
     }
 
     public Car(String brand, String model, String color) {
