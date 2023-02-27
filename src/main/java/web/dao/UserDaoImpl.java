@@ -26,7 +26,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void updateUser(User user) {
         entityManager.merge(user);
-        entityManager.flush();
     }
 
     @Override
@@ -41,7 +40,6 @@ public class UserDaoImpl implements UserDao {
             throw new NullPointerException("User not found");
         }
         entityManager.remove(user);
-        entityManager.flush();
         return user;
     }
 }

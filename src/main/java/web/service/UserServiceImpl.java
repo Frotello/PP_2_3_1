@@ -9,18 +9,20 @@ import java.util.List;
 
 @Service
 @Transactional
-public class UserServiceImpl  implements UserService{
+public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
-    public UserServiceImpl(UserDao userDao){
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
-    private void createUser(User user) {
+    @Override
+    public void createUser(User user) {
         userDao.createUser(user);
     }
 
-    private void updateUser(User user) {
+    @Override
+    public void updateUser(User user) {
         userDao.updateUser(user);
     }
 
@@ -30,7 +32,7 @@ public class UserServiceImpl  implements UserService{
     }
 
     @Override
-    public User readUser(long id) {
+    public User getUserById(long id) {
         return userDao.readUser(id);
     }
 
@@ -43,14 +45,5 @@ public class UserServiceImpl  implements UserService{
             e.printStackTrace();
         }
         return user;
-    }
-
-    @Override
-    public void createOrUpdateUser(User user) {
-        if (0 == user.getId()) {
-            createUser(user);
-        } else {
-            updateUser(user);
-        }
     }
 }

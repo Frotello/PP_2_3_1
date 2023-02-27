@@ -7,9 +7,9 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-    private @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
 
     @Column(name = "name")
     private String name;
@@ -21,12 +21,11 @@ public class User {
     private String email;
 
 
-
-
-    public User(){}
+    public User() {
+    }
 
     public User(String firstName, String lastName, String email, String password) {
-        this.name= name;
+        this.name = name;
         this.lastName = lastName;
         this.email = email;
     }
@@ -62,7 +61,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
 
     @Override
